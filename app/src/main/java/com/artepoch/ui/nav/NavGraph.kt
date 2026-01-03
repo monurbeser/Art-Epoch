@@ -11,6 +11,7 @@ import com.artepoch.ui.screens.artists.ArtistsScreen
 import com.artepoch.ui.screens.detail.DetailScreen
 import com.artepoch.ui.screens.movement.MovementScreen
 import com.artepoch.ui.screens.results.ResultsScreen
+import com.artepoch.ui.screens.search.ArtistSearchScreen
 import com.artepoch.ui.screens.splash.SplashScreen
 import com.artepoch.ui.screens.splash.SplashPeriodScreen
 import com.artepoch.viewmodel.ArtViewModel
@@ -42,6 +43,9 @@ fun NavGraph(
                 onPeriodSelected = { period ->
                     vm.selectPeriod(period)
                     navController.navigate(Routes.MOVEMENT)
+                },
+                onSearchClick = {
+                    navController.navigate(Routes.ARTIST_SEARCH)
                 }
             )
         }
@@ -96,6 +100,38 @@ fun NavGraph(
                 artwork = state.selectedArtwork,
                 onBack = {
                     vm.clearSelectedArtwork()
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(Routes.ARTIST_SEARCH) {
+            ArtistSearchScreen(
+                vm = vm,
+                onArtistSelected = { artist ->
+                    // Artist seçildiğinde direkt olarak eserlerini göster
+                    vm.selectArtist(artist)
+                    navController.navigate(Routes.ARTIST_ARTWORKS)
+                },
+                onBack = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(Routes.ARTIST_ARTWORKS) {
+            // Artist'in eserlerini göstermek için Results ekranını kullanabiliriz
+            // Ama global arama olduğu için özel bir ekran yapabiliriz
+            ResultsScreen(
+                state = state,
+                onArtworkClick = { artwork ->
+                    vm.openArtwork(artwork)
+                    navController.navigate(Routes.DETAIL)
+                },
+                onLoadMore = {
+                    vm.loadNextPage()
+                },
+                onBack = {
                     navController.popBackStack()
                 }
             )

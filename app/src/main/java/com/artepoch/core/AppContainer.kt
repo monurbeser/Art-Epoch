@@ -1,14 +1,15 @@
 // File: app/src/main/java/com/artepoch/core/AppContainer.kt
 package com.artepoch.core
 
-import com.artepoch.data.wiki.WikiNetwork
+import android.content.Context
+import com.artepoch.data.local.OfflineArtworkData
 import com.artepoch.data.repo.ArtRepository
 
-class AppContainer {
+class AppContainer(context: Context) {
 
-    private val wikiApi = WikiNetwork.createApi()
+    private val offlineData = OfflineArtworkData(context)
 
     val artRepository: ArtRepository by lazy {
-        ArtRepository(wikiApi = wikiApi)
+        ArtRepository(offlineData = offlineData)
     }
 }

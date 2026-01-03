@@ -18,8 +18,8 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             ArtEpochTheme {
-                // Basit DI: tek container
-                val container = remember { AppContainer() }
+                // Basit DI: tek container (context ile)
+                val container = remember { AppContainer(applicationContext) }
 
                 // ViewModel Factory ile repo enjekte ediyoruz (Hilt yok)
                 val vm: ArtViewModel = viewModel(
