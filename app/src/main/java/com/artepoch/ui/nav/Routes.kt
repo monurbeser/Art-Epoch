@@ -2,6 +2,7 @@
 package com.artepoch.ui.nav
 
 object Routes {
+    const val INITIAL_SPLASH = "initial_splash"
     const val SPLASH = "splash"
     const val MOVEMENT = "movement"
     const val RESULTS = "results"

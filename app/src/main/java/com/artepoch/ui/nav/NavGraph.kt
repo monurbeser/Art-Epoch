@@ -10,6 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import com.artepoch.ui.screens.detail.DetailScreen
 import com.artepoch.ui.screens.movement.MovementScreen
 import com.artepoch.ui.screens.results.ResultsScreen
+import com.artepoch.ui.screens.splash.SplashScreen
 import com.artepoch.ui.screens.splash.SplashPeriodScreen
 import com.artepoch.viewmodel.ArtViewModel
 
@@ -22,8 +23,18 @@ fun NavGraph(
 
     NavHost(
         navController = navController,
-        startDestination = Routes.SPLASH
+        startDestination = Routes.INITIAL_SPLASH
     ) {
+
+        composable(Routes.INITIAL_SPLASH) {
+            SplashScreen(
+                onTimeout = {
+                    navController.navigate(Routes.SPLASH) {
+                        popUpTo(Routes.INITIAL_SPLASH) { inclusive = true }
+                    }
+                }
+            )
+        }
 
         composable(Routes.SPLASH) {
             SplashPeriodScreen(
