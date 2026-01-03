@@ -116,4 +116,18 @@ class ArtViewModel(
     fun clearSelectedArtwork() {
         _state.value = _state.value.copy(selectedArtwork = null)
     }
+
+    // Global artist arama
+    suspend fun searchArtists(query: String): List<String> {
+        return runCatching {
+            repository.searchArtists(query)
+        }.getOrDefault(emptyList())
+    }
+
+    // Global artist bazlı eser arama
+    suspend fun getArtworksByArtist(artist: String, page: Int = 0): List<Artwork> {
+        return runCatching {
+            repository.getArtworksByArtist(artist, page, pageSize = 10)
+        }.getOrDefault(emptyList())
+    }
 }

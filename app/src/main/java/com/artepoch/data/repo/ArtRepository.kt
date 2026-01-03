@@ -2,129 +2,75 @@
 package com.artepoch.data.repo
 
 import android.util.Log
-import com.artepoch.data.wiki.WikiApi
+import com.artepoch.data.local.OfflineArtworkData
 import com.artepoch.domain.model.Artwork
 import com.artepoch.domain.model.Movement
 
 class ArtRepository(
-    private val wikiApi: WikiApi
+    private val offlineData: OfflineArtworkData
 ) {
 
-    // Tüm artwork'leri çek ve sanatçılara göre grupla
+    // Tüm artwork'leri çek ve sanatçılara göre grupla (OFFLINE)
     suspend fun getArtistsByMovement(movement: Movement): List<String> {
-        Log.d("ArtRepository", "Fetching artists for: ${movement.wikiCategory}")
+        Log.d("ArtRepository", "Loading artists for: ${movement.label} (offline)")
 
         return try {
-            val response = wikiApi.getCategoryImages(
-                categoryTitle = "Category:${movement.wikiCategory}",
-                limit = 500 // Daha fazla veri çekelim ki tüm sanatçıları bulalım
-            )
-
-            val pages = response.query?.pages?.values ?: emptyList()
-
-            // Sanatçıları topla ve grupla
-            val artists = pages.mapNotNull { page ->
-                val imageInfo = page.imageinfo?.firstOrNull() ?: return@mapNotNull null
-                val thumbUrl = imageInfo.thumburl ?: imageInfo.url ?: return@mapNotNull null
-
-                // .svg ve .tif dosyalarını atla
-                if (thumbUrl.endsWith(".svg") || thumbUrl.contains(".tif")) {
-                    return@mapNotNull null
-                }
-
-                val metadata = imageInfo.extmetadata
-                val artist = metadata?.artist?.value
-                    ?.replace(Regex("<[^>]*>"), "")
-                    ?.trim()
-                    ?: "Unknown"
-
-                artist
-            }
-            .distinct()
-            .sorted()
-
+            val artists = offlineData.getArtistsByMovement(movement.label)
             Log.d("ArtRepository", "Found ${artists.size} unique artists")
             artists
-
         } catch (e: Exception) {
-            Log.e("ArtRepository", "Failed to fetch artists: ${e.message}", e)
-            throw e
+            Log.e("ArtRepository", "Failed to load artists: ${e.message}", e)
+            emptyList()
         }
     }
 
-    // Belirli bir sanatçının eserlerini pagination ile getir
+    // Belirli bir sanatçının eserlerini pagination ile getir (OFFLINE)
     suspend fun searchArtworksByArtist(
         movement: Movement,
         artist: String,
         page: Int = 0,
         pageSize: Int = 10
     ): List<Artwork> {
-        Log.d("ArtRepository", "Searching artworks for artist: $artist (page: $page)")
+        Log.d("ArtRepository", "Loading artworks for artist: $artist (page: $page, offline)")
 
         return try {
-            // Daha fazla veri çekelim pagination için
-            val response = wikiApi.getCategoryImages(
-                categoryTitle = "Category:${movement.wikiCategory}",
-                limit = 500
+            val artworks = offlineData.getArtworksByArtistAndMovement(
+                artist = artist,
+                movementLabel = movement.label,
+                page = page,
+                pageSize = pageSize
             )
-
-            val pages = response.query?.pages?.values ?: emptyList()
-
-            val allArtworks = pages.mapNotNull { page ->
-                val imageInfo = page.imageinfo?.firstOrNull() ?: return@mapNotNull null
-                val thumbUrl = imageInfo.thumburl ?: imageInfo.url ?: return@mapNotNull null
-
-                // .svg ve .tif dosyalarını atla
-                if (thumbUrl.endsWith(".svg") || thumbUrl.contains(".tif")) {
-                    return@mapNotNull null
-                }
-
-                val metadata = imageInfo.extmetadata
-
-                // HTML taglerini temizle
-                val title = metadata?.objectName?.value
-                    ?.replace(Regex("<[^>]*>"), "")
-                    ?.trim()
-                    ?: page.title?.removePrefix("File:")?.substringBeforeLast(".")
-                    ?: "Untitled"
-
-                val pageArtist = metadata?.artist?.value
-                    ?.replace(Regex("<[^>]*>"), "")
-                    ?.trim()
-                    ?: "Unknown"
-
-                // Sadece seçilen sanatçının eserlerini al
-                if (pageArtist != artist) return@mapNotNull null
-
-                Artwork(
-                    id = page.pageid ?: 0,
-                    title = title,
-                    artist = pageArtist,
-                    beginYear = null,
-                    endYear = null,
-                    displayDate = metadata?.dateTimeOriginal?.value,
-                    medium = null,
-                    classification = movement.label,
-                    imageUrl = thumbUrl,
-                    museumUrl = "https://commons.wikimedia.org/wiki/${page.title?.replace(" ", "_")}"
-                )
-            }
-
-            // Pagination uygula
-            val startIndex = page * pageSize
-            val endIndex = minOf(startIndex + pageSize, allArtworks.size)
-
-            if (startIndex >= allArtworks.size) {
-                emptyList()
-            } else {
-                val pagedResults = allArtworks.subList(startIndex, endIndex)
-                Log.d("ArtRepository", "Returning ${pagedResults.size} artworks for page $page")
-                pagedResults
-            }
-
+            Log.d("ArtRepository", "Returning ${artworks.size} artworks for page $page")
+            artworks
         } catch (e: Exception) {
             Log.e("ArtRepository", "Search failed: ${e.message}", e)
-            throw e
+            emptyList()
+        }
+    }
+
+    // Artist arama (tüm movements genelinde)
+    suspend fun searchArtists(query: String): List<String> {
+        Log.d("ArtRepository", "Searching artists with query: $query")
+        return try {
+            offlineData.searchArtists(query)
+        } catch (e: Exception) {
+            Log.e("ArtRepository", "Artist search failed: ${e.message}", e)
+            emptyList()
+        }
+    }
+
+    // Belirli bir artist'in tüm eserlerini getir (tüm movements genelinde)
+    suspend fun getArtworksByArtist(
+        artist: String,
+        page: Int = 0,
+        pageSize: Int = 10
+    ): List<Artwork> {
+        Log.d("ArtRepository", "Loading all artworks for artist: $artist (page: $page)")
+        return try {
+            offlineData.getArtworksByArtist(artist, page, pageSize)
+        } catch (e: Exception) {
+            Log.e("ArtRepository", "Failed to load artworks: ${e.message}", e)
+            emptyList()
         }
     }
 }

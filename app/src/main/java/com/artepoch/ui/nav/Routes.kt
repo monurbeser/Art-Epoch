@@ -8,4 +8,6 @@ object Routes {
     const val ARTISTS = "artists"
     const val RESULTS = "results"
     const val DETAIL = "detail"
+    const val ARTIST_SEARCH = "artist_search"
+    const val ARTIST_ARTWORKS = "artist_artworks"
 }

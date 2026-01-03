@@ -1,0 +1,562 @@
+[
+  {
+    "id": 1,
+    "title": "Mona Lisa",
+    "artist": "Leonardo da Vinci",
+    "year": "1503-1519",
+    "movement": "Renaissance",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"
+  },
+  {
+    "id": 2,
+    "title": "The Last Supper",
+    "artist": "Leonardo da Vinci",
+    "year": "1495-1498",
+    "movement": "Renaissance",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/%C3%9Altima_Cena_-_Da_Vinci_5.jpg/800px-%C3%9Altima_Cena_-_Da_Vinci_5.jpg"
+  },
+  {
+    "id": 3,
+    "title": "The Creation of Adam",
+    "artist": "Michelangelo",
+    "year": "1508-1512",
+    "movement": "Renaissance",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg/800px-Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg"
+  },
+  {
+    "id": 4,
+    "title": "The Birth of Venus",
+    "artist": "Sandro Botticelli",
+    "year": "1484-1486",
+    "movement": "Renaissance",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/800px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg"
+  },
+  {
+    "id": 5,
+    "title": "The School of Athens",
+    "artist": "Raphael",
+    "year": "1509-1511",
+    "movement": "Renaissance",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg/800px-%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Primavera",
+    "artist": "Sandro Botticelli",
+    "year": "1477-1482",
+    "movement": "Renaissance",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Botticelli-primavera.jpg/800px-Botticelli-primavera.jpg"
+  },
+  {
+    "id": 7,
+    "title": "The Arnolfini Portrait",
+    "artist": "Jan van Eyck",
+    "year": "1434",
+    "movement": "Renaissance",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Van_Eyck_-_Arnolfini_Portrait.jpg/800px-Van_Eyck_-_Arnolfini_Portrait.jpg"
+  },
+  {
+    "id": 8,
+    "title": "David",
+    "artist": "Michelangelo",
+    "year": "1501-1504",
+    "movement": "Renaissance",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/%27David%27_by_Michelangelo_Fir_JBU002.jpg/800px-%27David%27_by_Michelangelo_Fir_JBU002.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Lady with an Ermine",
+    "artist": "Leonardo da Vinci",
+    "year": "1489-1491",
+    "movement": "Renaissance",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Lady_with_an_Ermine_-_Leonardo_da_Vinci_-_Google_Art_Project.jpg/800px-Lady_with_an_Ermine_-_Leonardo_da_Vinci_-_Google_Art_Project.jpg"
+  },
+  {
+    "id": 10,
+    "title": "The Garden of Earthly Delights",
+    "artist": "Hieronymus Bosch",
+    "year": "1490-1510",
+    "movement": "Renaissance",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/The_Garden_of_earthly_delights.jpg/800px-The_Garden_of_earthly_delights.jpg"
+  },
+  {
+    "id": 11,
+    "title": "The Night Watch",
+    "artist": "Rembrandt",
+    "year": "1642",
+    "movement": "Baroque",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Night_Watch_-_HD.jpg/800px-The_Night_Watch_-_HD.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Girl with a Pearl Earring",
+    "artist": "Johannes Vermeer",
+    "year": "1665",
+    "movement": "Baroque",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/800px-1665_Girl_with_a_Pearl_Earring.jpg"
+  },
+  {
+    "id": 13,
+    "title": "Las Meninas",
+    "artist": "Diego Velázquez",
+    "year": "1656",
+    "movement": "Baroque",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Las_Meninas_01.jpg/800px-Las_Meninas_01.jpg"
+  },
+  {
+    "id": 14,
+    "title": "The Calling of Saint Matthew",
+    "artist": "Caravaggio",
+    "year": "1599-1600",
+    "movement": "Baroque",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg/800px-The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg"
+  },
+  {
+    "id": 15,
+    "title": "The Descent from the Cross",
+    "artist": "Peter Paul Rubens",
+    "year": "1612-1614",
+    "movement": "Baroque",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Descent_from_the_Cross_%28Rubens%29_July_2015-1a.jpg/800px-Descent_from_the_Cross_%28Rubens%29_July_2015-1a.jpg"
+  },
+  {
+    "id": 16,
+    "title": "The Milkmaid",
+    "artist": "Johannes Vermeer",
+    "year": "1658-1661",
+    "movement": "Baroque",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Johannes_Vermeer_-_Het_melkmeisje_-_Google_Art_Project.jpg/800px-Johannes_Vermeer_-_Het_milkmeisje_-_Google_Art_Project.jpg"
+  },
+  {
+    "id": 17,
+    "title": "The Anatomy Lesson of Dr. Nicolaes Tulp",
+    "artist": "Rembrandt",
+    "year": "1632",
+    "movement": "Baroque",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Rembrandt_-_The_Anatomy_Lesson_of_Dr_Nicolaes_Tulp.jpg/800px-Rembrandt_-_The_Anatomy_Lesson_of_Dr_Nicolaes_Tulp.jpg"
+  },
+  {
+    "id": 18,
+    "title": "Judith Slaying Holofernes",
+    "artist": "Artemisia Gentileschi",
+    "year": "1614-1620",
+    "movement": "Baroque",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Gentileschi_Artemisia_Judith_Beheading_Holofernes_Naples.jpg/800px-Gentileschi_Artemisia_Judith_Beheading_Holofernes_Naples.jpg"
+  },
+  {
+    "id": 19,
+    "title": "The Swing",
+    "artist": "Jean-Honoré Fragonard",
+    "year": "1767",
+    "movement": "Rococo",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Fragonard%2C_The_Swing.jpg/800px-Fragonard%2C_The_Swing.jpg"
+  },
+  {
+    "id": 20,
+    "title": "Pilgrimage to Cythera",
+    "artist": "Jean-Antoine Watteau",
+    "year": "1717",
+    "movement": "Rococo",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Jean-Antoine_Watteau_-_Pilgrimage_to_Cythera.jpg/800px-Jean-Antoine_Watteau_-_Pilgrimage_to_Cythera.jpg"
+  },
+  {
+    "id": 21,
+    "title": "Liberty Leading the People",
+    "artist": "Eugène Delacroix",
+    "year": "1830",
+    "movement": "Romanticism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Eug%C3%A8ne_Delacroix_-_La_libert%C3%A9_guidant_le_peuple.jpg/800px-Eug%C3%A8ne_Delacroix_-_La_libert%C3%A9_guidant_le_peuple.jpg"
+  },
+  {
+    "id": 22,
+    "title": "Wanderer above the Sea of Fog",
+    "artist": "Caspar David Friedrich",
+    "year": "1818",
+    "movement": "Romanticism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg/800px-Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg"
+  },
+  {
+    "id": 23,
+    "title": "The Fighting Temeraire",
+    "artist": "J.M.W. Turner",
+    "year": "1838",
+    "movement": "Romanticism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/The_Fighting_Temeraire%2C_JMW_Turner%2C_National_Gallery.jpg/800px-The_Fighting_Temeraire%2C_JMW_Turner%2C_National_Gallery.jpg"
+  },
+  {
+    "id": 24,
+    "title": "The Third of May 1808",
+    "artist": "Francisco Goya",
+    "year": "1814",
+    "movement": "Romanticism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/El_Tres_de_Mayo%2C_by_Francisco_de_Goya%2C_from_Prado_thin_black_margin.jpg/800px-El_Tres_de_Mayo%2C_by_Francisco_de_Goya%2C_from_Prado_thin_black_margin.jpg"
+  },
+  {
+    "id": 25,
+    "title": "The Raft of the Medusa",
+    "artist": "Théodore Géricault",
+    "year": "1818-1819",
+    "movement": "Romanticism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/JEAN_LOUIS_TH%C3%89ODORE_G%C3%89RICAULT_-_La_Balsa_de_la_Medusa_%28Museo_del_Louvre%2C_1818-19%29.jpg/800px-JEAN_LOUIS_TH%C3%89ODORE_G%C3%89RICAULT_-_La_Balsa_de_la_Medusa_%28Museo_del_Louvre%2C_1818-19%29.jpg"
+  },
+  {
+    "id": 26,
+    "title": "Saturn Devouring His Son",
+    "artist": "Francisco Goya",
+    "year": "1819-1823",
+    "movement": "Romanticism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Francisco_de_Goya%2C_Saturno_devorando_a_su_hijo_%281819-1823%29.jpg/800px-Francisco_de_Goya%2C_Saturno_devorando_a_su_hijo_%281819-1823%29.jpg"
+  },
+  {
+    "id": 27,
+    "title": "The Gleaners",
+    "artist": "Jean-François Millet",
+    "year": "1857",
+    "movement": "Realism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project_2.jpg/800px-Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project_2.jpg"
+  },
+  {
+    "id": 28,
+    "title": "The Stone Breakers",
+    "artist": "Gustave Courbet",
+    "year": "1849",
+    "movement": "Realism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Gustave_Courbet_-_The_Stone_Breakers_-_WGA05457.jpg/800px-Gustave_Courbet_-_The_Stone_Breakers_-_WGA05457.jpg"
+  },
+  {
+    "id": 29,
+    "title": "A Burial At Ornans",
+    "artist": "Gustave Courbet",
+    "year": "1849-1850",
+    "movement": "Realism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Gustave_Courbet_-_A_Burial_at_Ornans_-_Google_Art_Project_2.jpg/800px-Gustave_Courbet_-_A_Burial_at_Ornans_-_Google_Art_Project_2.jpg"
+  },
+  {
+    "id": 30,
+    "title": "The Angelus",
+    "artist": "Jean-François Millet",
+    "year": "1857-1859",
+    "movement": "Realism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Jean-Fran%C3%A7ois_Millet_%28II%29_-_Gleaners.jpg/800px-Jean-Fran%C3%A7ois_Millet_%28II%29_-_Gleaners.jpg"
+  },
+  {
+    "id": 31,
+    "title": "Impression, Sunrise",
+    "artist": "Claude Monet",
+    "year": "1872",
+    "movement": "Impressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monet_-_Impression%2C_Sunrise.jpg/800px-Monet_-_Impression%2C_Sunrise.jpg"
+  },
+  {
+    "id": 32,
+    "title": "Water Lilies",
+    "artist": "Claude Monet",
+    "year": "1906",
+    "movement": "Impressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/800px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg"
+  },
+  {
+    "id": 33,
+    "title": "Bal du moulin de la Galette",
+    "artist": "Pierre-Auguste Renoir",
+    "year": "1876",
+    "movement": "Impressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Auguste_Renoir_-_Dance_at_Le_Moulin_de_la_Galette_-_Mus%C3%A9e_d%27Orsay_RF_2739_%28derivative_work_-_AutoContrast_edit_in_LCH_space%29.jpg/800px-Auguste_Renoir_-_Dance_at_Le_Moulin_de_la_Galette.jpg"
+  },
+  {
+    "id": 34,
+    "title": "The Dance Class",
+    "artist": "Edgar Degas",
+    "year": "1874",
+    "movement": "Impressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Edgar_Degas_-_The_Dance_Class_-_Google_Art_Project.jpg/800px-Edgar_Degas_-_The_Dance_Class_-_Google_Art_Project.jpg"
+  },
+  {
+    "id": 35,
+    "title": "Luncheon of the Boating Party",
+    "artist": "Pierre-Auguste Renoir",
+    "year": "1880-1881",
+    "movement": "Impressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Pierre-Auguste_Renoir%2C_Le_d%C3%A9jeuner_des_canotiers.jpg/800px-Pierre-Auguste_Renoir%2C_Le_d%C3%A9jeuner_des_canotiers.jpg"
+  },
+  {
+    "id": 36,
+    "title": "Boulevard Montmartre",
+    "artist": "Camille Pissarro",
+    "year": "1897",
+    "movement": "Impressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Camille_Pissarro_-_Boulevard_Montmartre_-_Eremitage.jpg/800px-Camille_Pissarro_-_Boulevard_Montmartre_-_Eremitage.jpg"
+  },
+  {
+    "id": 37,
+    "title": "Woman with a Parasol",
+    "artist": "Claude Monet",
+    "year": "1875",
+    "movement": "Impressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Claude_Monet_-_Woman_with_a_Parasol_-_Madame_Monet_and_Her_Son_-_Google_Art_Project.jpg/800px-Claude_Monet_-_Woman_with_a_Parasol.jpg"
+  },
+  {
+    "id": 38,
+    "title": "Olympia",
+    "artist": "Édouard Manet",
+    "year": "1863",
+    "movement": "Impressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/%C3%89douard_Manet_-_Olympia_-_Google_Art_Project_3.jpg/800px-%C3%89douard_Manet_-_Olympia_-_Google_Art_Project_3.jpg"
+  },
+  {
+    "id": 39,
+    "title": "The Starry Night",
+    "artist": "Vincent van Gogh",
+    "year": "1889",
+    "movement": "Post-Impressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/800px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
+  },
+  {
+    "id": 40,
+    "title": "Sunflowers",
+    "artist": "Vincent van Gogh",
+    "year": "1888",
+    "movement": "Post-Impressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Vincent_Willem_van_Gogh_127.jpg/800px-Vincent_Willem_van_Gogh_127.jpg"
+  },
+  {
+    "id": 41,
+    "title": "The Card Players",
+    "artist": "Paul Cézanne",
+    "year": "1890-1892",
+    "movement": "Post-Impressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Les_Joueurs_de_cartes%2C_par_Paul_C%C3%A9zanne.jpg/800px-Les_Joueurs_de_cartes%2C_par_Paul_C%C3%A9zanne.jpg"
+  },
+  {
+    "id": 42,
+    "title": "Café Terrace at Night",
+    "artist": "Vincent van Gogh",
+    "year": "1888",
+    "movement": "Post-Impressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Vincent_Willem_van_Gogh_-_Cafe_Terrace_at_Night_%28Yorck%29.jpg/800px-Vincent_Willem_van_Gogh_-_Cafe_Terrace_at_Night.jpg"
+  },
+  {
+    "id": 43,
+    "title": "Where Do We Come From? What Are We? Where Are We Going?",
+    "artist": "Paul Gauguin",
+    "year": "1897-1898",
+    "movement": "Post-Impressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Paul_Gauguin_-_D%27ou_venons-nous.jpg/800px-Paul_Gauguin_-_D%27ou_venons-nous.jpg"
+  },
+  {
+    "id": 44,
+    "title": "A Sunday Afternoon on the Island of La Grande Jatte",
+    "artist": "Georges Seurat",
+    "year": "1884-1886",
+    "movement": "Post-Impressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/A_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.jpg/800px-A_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.jpg"
+  },
+  {
+    "id": 45,
+    "title": "The Night Café",
+    "artist": "Vincent van Gogh",
+    "year": "1888",
+    "movement": "Post-Impressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Vincent_Willem_van_Gogh_-_The_Night_Caf%C3%A9_-_Google_Art_Project.jpg/800px-Vincent_Willem_van_Gogh_-_The_Night_Caf%C3%A9.jpg"
+  },
+  {
+    "id": 46,
+    "title": "The Scream",
+    "artist": "Edvard Munch",
+    "year": "1893",
+    "movement": "Expressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg/800px-Edvard_Munch%2C_1893%2C_The_Scream.jpg"
+  },
+  {
+    "id": 47,
+    "title": "The Kiss",
+    "artist": "Gustav Klimt",
+    "year": "1907-1908",
+    "movement": "Art Nouveau",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Gustav_Klimt_016.jpg/800px-Gustav_Klimt_016.jpg"
+  },
+  {
+    "id": 48,
+    "title": "Portrait of Adele Bloch-Bauer I",
+    "artist": "Gustav Klimt",
+    "year": "1907",
+    "movement": "Art Nouveau",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Gustav_Klimt_046.jpg/800px-Gustav_Klimt_046.jpg"
+  },
+  {
+    "id": 49,
+    "title": "Les Demoiselles d'Avignon",
+    "artist": "Pablo Picasso",
+    "year": "1907",
+    "movement": "Cubism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Les_Demoiselles_d%27Avignon.jpg/800px-Les_Demoiselles_d%27Avignon.jpg"
+  },
+  {
+    "id": 50,
+    "title": "Guernica",
+    "artist": "Pablo Picasso",
+    "year": "1937",
+    "movement": "Cubism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/PicassoGuernica.jpg/800px-PicassoGuernica.jpg"
+  },
+  {
+    "id": 51,
+    "title": "The Weeping Woman",
+    "artist": "Pablo Picasso",
+    "year": "1937",
+    "movement": "Cubism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/1/14/Picasso_The_Weeping_Woman_Tate_identifier_T05010_10.jpg/800px-Picasso_The_Weeping_Woman_Tate_identifier_T05010_10.jpg"
+  },
+  {
+    "id": 52,
+    "title": "Girl before a Mirror",
+    "artist": "Pablo Picasso",
+    "year": "1932",
+    "movement": "Cubism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9d/Picasso_Girl_before_a_Mirror.jpg/800px-Picasso_Girl_before_a_Mirror.jpg"
+  },
+  {
+    "id": 53,
+    "title": "Three Musicians",
+    "artist": "Pablo Picasso",
+    "year": "1921",
+    "movement": "Cubism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/Pablo_Picasso%2C_1921%2C_Trois_musiciens_%28Three_Musicians%29.jpg/800px-Pablo_Picasso%2C_1921%2C_Trois_musiciens.jpg"
+  },
+  {
+    "id": 54,
+    "title": "Houses at L'Estaque",
+    "artist": "Georges Braque",
+    "year": "1908",
+    "movement": "Cubism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/3/38/Braque_l%27Estaque.jpg/800px-Braque_l%27Estaque.jpg"
+  },
+  {
+    "id": 55,
+    "title": "Portrait of Pablo Picasso",
+    "artist": "Juan Gris",
+    "year": "1912",
+    "movement": "Cubism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a0/Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg/800px-Juan_Gris_-_Portrait_of_Pablo_Picasso.jpg"
+  },
+  {
+    "id": 56,
+    "title": "Violin and Candlestick",
+    "artist": "Georges Braque",
+    "year": "1910",
+    "movement": "Cubism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d0/Georges_Braque%2C_1910%2C_Violin_and_Candlestick.jpg/800px-Georges_Braque%2C_1910%2C_Violin_and_Candlestick.jpg"
+  },
+  {
+    "id": 57,
+    "title": "The Persistence of Memory",
+    "artist": "Salvador Dalí",
+    "year": "1931",
+    "movement": "Surrealism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/The_Persistence_of_Memory.jpg/800px-The_Persistence_of_Memory.jpg"
+  },
+  {
+    "id": 58,
+    "title": "The Son of Man",
+    "artist": "René Magritte",
+    "year": "1964",
+    "movement": "Surrealism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Magritte_TheSonOfMan.jpg/800px-Magritte_TheSonOfMan.jpg"
+  },
+  {
+    "id": 59,
+    "title": "The Tilled Field",
+    "artist": "Joan Miró",
+    "year": "1923-1924",
+    "movement": "Surrealism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/8/89/Joan_Mir%C3%B3%2C_1923-24%2C_The_Tilled_Field.jpg/800px-Joan_Mir%C3%B3%2C_1923-24%2C_The_Tilled_Field.jpg"
+  },
+  {
+    "id": 60,
+    "title": "The Elephants",
+    "artist": "Salvador Dalí",
+    "year": "1948",
+    "movement": "Surrealism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Salvador_Dali_The_Elephants_1948.jpg/800px-Salvador_Dali_The_Elephants_1948.jpg"
+  },
+  {
+    "id": 61,
+    "title": "The Treachery of Images",
+    "artist": "René Magritte",
+    "year": "1929",
+    "movement": "Surrealism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/MagrittePipe.jpg/800px-MagrittePipe.jpg"
+  },
+  {
+    "id": 62,
+    "title": "Number 1, 1950 (Lavender Mist)",
+    "artist": "Jackson Pollock",
+    "year": "1950",
+    "movement": "Abstract Expressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/0/01/No._1_%28Royal_Red_and_Blue%29.jpg/800px-No._1_%28Royal_Red_and_Blue%29.jpg"
+  },
+  {
+    "id": 63,
+    "title": "Orange and Yellow",
+    "artist": "Mark Rothko",
+    "year": "1956",
+    "movement": "Abstract Expressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/Mark_Rothko%2C_Orange_and_Yellow%2C_1956.jpg/800px-Mark_Rothko%2C_Orange_and_Yellow%2C_1956.jpg"
+  },
+  {
+    "id": 64,
+    "title": "Woman I",
+    "artist": "Willem de Kooning",
+    "year": "1950-1952",
+    "movement": "Abstract Expressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/8/88/De_Kooning_Woman_I.jpg/800px-De_Kooning_Woman_I.jpg"
+  },
+  {
+    "id": 65,
+    "title": "No. 5, 1948",
+    "artist": "Jackson Pollock",
+    "year": "1948",
+    "movement": "Abstract Expressionism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7f/No._5%2C_1948.jpg/800px-No._5%2C_1948.jpg"
+  },
+  {
+    "id": 66,
+    "title": "Marilyn Diptych",
+    "artist": "Andy Warhol",
+    "year": "1962",
+    "movement": "Pop Art",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Marilyndiptych.jpg/800px-Marilyndiptych.jpg"
+  },
+  {
+    "id": 67,
+    "title": "Whaam!",
+    "artist": "Roy Lichtenstein",
+    "year": "1963",
+    "movement": "Pop Art",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/Roy_Lichtenstein_Whaam.jpg/800px-Roy_Lichtenstein_Whaam.jpg"
+  },
+  {
+    "id": 68,
+    "title": "Campbell's Soup Cans",
+    "artist": "Andy Warhol",
+    "year": "1962",
+    "movement": "Pop Art",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9d/Campbells_Soup_Cans_MOMA.jpg/800px-Campbells_Soup_Cans_MOMA.jpg"
+  },
+  {
+    "id": 69,
+    "title": "Drowning Girl",
+    "artist": "Roy Lichtenstein",
+    "year": "1963",
+    "movement": "Pop Art",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/Drowning_Girl.jpg/800px-Drowning_Girl.jpg"
+  },
+  {
+    "id": 70,
+    "title": "Composition with Red Blue and Yellow",
+    "artist": "Piet Mondrian",
+    "year": "1930",
+    "movement": "Neoclassicism",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Piet_Mondriaan%2C_1930_-_Mondrian_Composition_II_in_Red%2C_Blue%2C_and_Yellow.jpg/800px-Piet_Mondriaan%2C_1930.jpg"
+  }
+]

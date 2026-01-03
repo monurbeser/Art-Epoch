@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -28,7 +30,8 @@ import com.artepoch.domain.model.Period
 
 @Composable
 fun SplashPeriodScreen(
-    onPeriodSelected: (Period) -> Unit
+    onPeriodSelected: (Period) -> Unit,
+    onSearchClick: () -> Unit = {}
 ) {
     // Bej renkli gradyen background
     val beigeGradient = Brush.verticalGradient(
@@ -75,6 +78,23 @@ fun SplashPeriodScreen(
                     style = MaterialTheme.typography.bodySmall,
                     color = Color(0xFF2C2416).copy(alpha = 0.6f)
                 )
+
+                // Search Artist Button
+                Spacer(modifier = Modifier.height(16.dp))
+                Button(
+                    onClick = onSearchClick,
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFF8B7355)
+                    ),
+                    shape = RoundedCornerShape(12.dp)
+                ) {
+                    Text(
+                        text = "🔍 Search Artists",
+                        style = MaterialTheme.typography.titleMedium,
+                        modifier = Modifier.padding(vertical = 8.dp)
+                    )
+                }
             }
 
             // 🔹 Period selector
