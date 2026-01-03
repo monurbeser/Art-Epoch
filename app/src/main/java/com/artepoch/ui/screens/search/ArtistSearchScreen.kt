@@ -60,7 +60,7 @@ fun ArtistSearchScreen(
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = backgroundColor
+                    containerColor = MaterialTheme.colorScheme.background
                 )
             )
         }
@@ -68,7 +68,7 @@ fun ArtistSearchScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(backgroundColor)
+                .background(MaterialTheme.colorScheme.background)
                 .padding(padding)
                 .padding(16.dp)
         ) {
@@ -83,8 +83,8 @@ fun ArtistSearchScreen(
                 singleLine = true,
                 shape = RoundedCornerShape(12.dp),
                 colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = primaryColor,
-                    unfocusedBorderColor = secondaryColor
+                    focusedBorderColor = MaterialTheme.colorScheme.primary,
+                    unfocusedBorderColor = MaterialTheme.colorScheme.secondary
                 )
             )
 
@@ -92,7 +92,7 @@ fun ArtistSearchScreen(
             Text(
                 text = "${searchResults.size} artists found",
                 fontSize = 14.sp,
-                color = secondaryColor,
+                color = MaterialTheme.colorScheme.secondary,
                 modifier = Modifier.padding(bottom = 8.dp)
             )
 
@@ -102,7 +102,7 @@ fun ArtistSearchScreen(
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
                 ) {
-                    CircularProgressIndicator(color = primaryColor)
+                    CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
                 }
             } else {
                 LazyColumn(
@@ -132,14 +132,14 @@ fun ArtistCard(
             .clickable(onClick = onClick),
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-        colors = CardDefaults.cardColors(containerColor = cardBackgroundColor)
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
     ) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(
                     Brush.horizontalGradient(
-                        colors = listOf(primaryColor.copy(alpha = 0.1f), backgroundColor)
+                        colors = listOf(MaterialTheme.colorScheme.primary.copy(alpha = 0.1f), MaterialTheme.colorScheme.background)
                     )
                 )
                 .padding(16.dp)
@@ -153,12 +153,12 @@ fun ArtistCard(
                     text = artistName,
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Medium,
-                    color = textPrimaryColor
+                    color = MaterialTheme.colorScheme.onSurface
                 )
                 Text(
                     text = "→",
                     fontSize = 20.sp,
-                    color = primaryColor
+                    color = MaterialTheme.colorScheme.primary
                 )
             }
         }
