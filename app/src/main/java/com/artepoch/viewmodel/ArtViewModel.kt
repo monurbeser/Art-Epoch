@@ -14,12 +14,18 @@ import kotlinx.coroutines.launch
 data class ArtUiState(
     val selectedPeriod: Period? = null,
     val selectedMovement: Movement? = null,
+    val selectedArtist: String? = null,
 
     val isLoading: Boolean = false,
     val error: String? = null,
 
+    val artists: List<String> = emptyList(),
     val results: List<Artwork> = emptyList(),
-    val selectedArtwork: Artwork? = null
+    val selectedArtwork: Artwork? = null,
+
+    // Pagination
+    val currentPage: Int = 0,
+    val hasMore: Boolean = false
 )
 
 class ArtViewModel(
@@ -37,25 +43,69 @@ class ArtViewModel(
         _state.value = _state.value.copy(selectedMovement = movement)
     }
 
-    fun loadResults() {
+    fun loadArtists() {
         val movement = _state.value.selectedMovement ?: return
 
         viewModelScope.launch {
             _state.value = _state.value.copy(
                 isLoading = true,
                 error = null,
-                results = emptyList()
+                artists = emptyList()
             )
 
             val result = runCatching {
-                repository.searchArtworks(movement = movement)
+                repository.getArtistsByMovement(movement = movement)
             }
 
             _state.value = _state.value.copy(
                 isLoading = false,
-                results = result.getOrDefault(emptyList()),
+                artists = result.getOrDefault(emptyList()),
                 error = result.exceptionOrNull()?.localizedMessage
             )
+        }
+    }
+
+    fun selectArtist(artist: String) {
+        _state.value = _state.value.copy(
+            selectedArtist = artist,
+            currentPage = 0,
+            results = emptyList()
+        )
+    }
+
+    fun loadResults(page: Int = 0) {
+        val movement = _state.value.selectedMovement ?: return
+        val artist = _state.value.selectedArtist ?: return
+
+        viewModelScope.launch {
+            _state.value = _state.value.copy(
+                isLoading = true,
+                error = null
+            )
+
+            val result = runCatching {
+                repository.searchArtworksByArtist(
+                    movement = movement,
+                    artist = artist,
+                    page = page,
+                    pageSize = 10
+                )
+            }
+
+            _state.value = _state.value.copy(
+                isLoading = false,
+                results = if (page == 0) result.getOrDefault(emptyList())
+                         else _state.value.results + result.getOrDefault(emptyList()),
+                currentPage = page,
+                hasMore = result.getOrDefault(emptyList()).size >= 10,
+                error = result.exceptionOrNull()?.localizedMessage
+            )
+        }
+    }
+
+    fun loadNextPage() {
+        if (!_state.value.isLoading && _state.value.hasMore) {
+            loadResults(_state.value.currentPage + 1)
         }
     }
 

@@ -7,6 +7,7 @@ import androidx.compose.runtime.getValue
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.artepoch.ui.screens.artists.ArtistsScreen
 import com.artepoch.ui.screens.detail.DetailScreen
 import com.artepoch.ui.screens.movement.MovementScreen
 import com.artepoch.ui.screens.results.ResultsScreen
@@ -50,6 +51,21 @@ fun NavGraph(
                 selectedPeriod = state.selectedPeriod,
                 onMovementSelected = { movement ->
                     vm.selectMovement(movement)
+                    vm.loadArtists()
+                    navController.navigate(Routes.ARTISTS)
+                },
+                onBack = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(Routes.ARTISTS) {
+            ArtistsScreen(
+                state = state,
+                selectedMovement = state.selectedMovement,
+                onArtistSelected = { artist ->
+                    vm.selectArtist(artist)
                     vm.loadResults()
                     navController.navigate(Routes.RESULTS)
                 },
@@ -65,6 +81,9 @@ fun NavGraph(
                 onArtworkClick = { artwork ->
                     vm.openArtwork(artwork)
                     navController.navigate(Routes.DETAIL)
+                },
+                onLoadMore = {
+                    vm.loadNextPage()
                 },
                 onBack = {
                     navController.popBackStack()

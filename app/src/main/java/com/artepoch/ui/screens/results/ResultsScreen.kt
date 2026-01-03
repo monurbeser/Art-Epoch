@@ -1,13 +1,21 @@
 // File: app/src/main/java/com/artepoch/ui/screens/results/ResultsScreen.kt
 package com.artepoch.ui.screens.results
 
+import androidx.compose.animation.*
+import androidx.compose.animation.core.*
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import coil.request.ImageRequest
 import androidx.compose.ui.platform.LocalContext
+import kotlinx.coroutines.delay
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -30,6 +38,7 @@ import com.artepoch.viewmodel.ArtUiState
 fun ResultsScreen(
     state: ArtUiState,
     onArtworkClick: (Artwork) -> Unit,
+    onLoadMore: () -> Unit,
     onBack: () -> Unit
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
@@ -45,18 +54,27 @@ fun ResultsScreen(
                 Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
             }
             Spacer(modifier = Modifier.width(8.dp))
-            Text(
-                text = "Artworks",
-                style = MaterialTheme.typography.headlineSmall
-            )
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = "Artworks",
+                    style = MaterialTheme.typography.headlineSmall
+                )
+                state.selectedArtist?.let { artist ->
+                    Text(
+                        text = artist,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
         }
 
         when {
-            state.isLoading -> {
+            state.isLoading && state.results.isEmpty() -> {
                 LoadingView()
             }
 
-            state.error != null -> {
+            state.error != null && state.results.isEmpty() -> {
                 ErrorView(message = state.error)
             }
 
@@ -67,7 +85,10 @@ fun ResultsScreen(
             else -> {
                 ArtworkGrid(
                     artworks = state.results,
-                    onArtworkClick = onArtworkClick
+                    isLoading = state.isLoading,
+                    hasMore = state.hasMore,
+                    onArtworkClick = onArtworkClick,
+                    onLoadMore = onLoadMore
                 )
             }
         }
@@ -77,7 +98,10 @@ fun ResultsScreen(
 @Composable
 private fun ArtworkGrid(
     artworks: List<Artwork>,
-    onArtworkClick: (Artwork) -> Unit
+    isLoading: Boolean,
+    hasMore: Boolean,
+    onArtworkClick: (Artwork) -> Unit,
+    onLoadMore: () -> Unit
 ) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
@@ -85,11 +109,47 @@ private fun ArtworkGrid(
         verticalArrangement = Arrangement.spacedBy(8.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        items(artworks) { artwork ->
-            ArtworkCard(
-                artwork = artwork,
-                onClick = { onArtworkClick(artwork) }
-            )
+        items(artworks.size) { index ->
+            val artwork = artworks[index]
+
+            // Load more when reaching near the end
+            if (index >= artworks.size - 2 && hasMore && !isLoading) {
+                androidx.compose.runtime.LaunchedEffect(Unit) {
+                    onLoadMore()
+                }
+            }
+
+            var visible by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(false) }
+
+            androidx.compose.runtime.LaunchedEffect(Unit) {
+                delay(index * 30L)
+                visible = true
+            }
+
+            AnimatedVisibility(
+                visible = visible,
+                enter = fadeIn(animationSpec = tween(300)) +
+                       scaleIn(initialScale = 0.8f, animationSpec = tween(300))
+            ) {
+                ArtworkCard(
+                    artwork = artwork,
+                    onClick = { onArtworkClick(artwork) }
+                )
+            }
+        }
+
+        // Loading indicator at the bottom
+        if (isLoading && artworks.isNotEmpty()) {
+            item(span = { androidx.compose.foundation.lazy.grid.GridItemSpan(2) }) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    androidx.compose.material3.CircularProgressIndicator()
+                }
+            }
         }
     }
 }
@@ -99,17 +159,39 @@ private fun ArtworkCard(
     artwork: Artwork,
     onClick: () -> Unit
 ) {
+    val interactionSource = remember { MutableInteractionSource() }
+    val isPressed by interactionSource.collectIsPressedAsState()
+
+    val scale by animateFloatAsState(
+        targetValue = if (isPressed) 0.95f else 1f,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessLow
+        ),
+        label = "cardScale"
+    )
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onClick() },
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+            .scale(scale)
+            .clickable(
+                interactionSource = interactionSource,
+                indication = null
+            ) { onClick() },
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 4.dp,
+            pressedElevation = 8.dp
+        ),
+        colors = CardDefaults.cardColors(
+            containerColor = Color.White
+        )
     ) {
         Column {
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(artwork.imageUrl)
-                    .crossfade(true)
+                    .crossfade(400)
                     .setHeader("User-Agent", "ArtEpoch/1.0 (Android)")
                     .build(),
                 contentDescription = artwork.title,
@@ -118,17 +200,20 @@ private fun ArtworkCard(
                     .aspectRatio(1f),
                 contentScale = ContentScale.Crop
             )
-            Column(modifier = Modifier.padding(8.dp)) {
+            Column(modifier = Modifier.padding(12.dp)) {
                 Text(
                     text = artwork.title,
                     style = MaterialTheme.typography.bodyMedium,
+                    fontWeight = FontWeight.SemiBold,
                     maxLines = 2,
-                    overflow = TextOverflow.Ellipsis
+                    overflow = TextOverflow.Ellipsis,
+                    color = Color(0xFF2C2416)
                 )
+                Spacer(modifier = Modifier.height(4.dp))
                 Text(
                     text = artwork.artist,
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = Color(0xFF2C2416).copy(alpha = 0.7f)
                 )
             }
         }
