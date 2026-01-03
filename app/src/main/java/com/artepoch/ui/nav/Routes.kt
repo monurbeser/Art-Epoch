@@ -5,6 +5,7 @@ object Routes {
     const val INITIAL_SPLASH = "initial_splash"
     const val SPLASH = "splash"
     const val MOVEMENT = "movement"
+    const val ARTISTS = "artists"
     const val RESULTS = "results"
     const val DETAIL = "detail"
 }
